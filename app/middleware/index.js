@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import createSagaMiddleWare from 'npm:redux-saga';
 import addAsync from '../sagas/counter';
 
@@ -6,6 +5,11 @@ const createSaga = createSagaMiddleWare.default ? createSagaMiddleWare.default :
 
 const sagaMiddleware = createSaga();
 
-Ember.run.next(() => sagaMiddleware.run(addAsync));
+const setup = () => {
+    sagaMiddleware.run(addAsync);
+};
 
-export default [sagaMiddleware];
+export default {
+    middleware: [sagaMiddleware],
+    setup: setup
+};
