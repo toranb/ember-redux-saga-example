@@ -1,4 +1,4 @@
-import createSagaMiddleWare from 'npm:redux-saga';
+import createSagaMiddleWare from 'redux-saga';
 import addAsync from '../sagas/counter';
 
 const createSaga = createSagaMiddleWare.default ? createSagaMiddleWare.default : createSagaMiddleWare;
